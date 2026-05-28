@@ -1,381 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Punjabcrops - Natural Organic Food & Spices</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punjabcrops - Organic Farming Products</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4fff0;
+            color: #333;
+        }
 
-    body{
-      background:#f7f7f2;
-      color:#333;
-      line-height:1.6;
-    }
+        header {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
 
-    header{
-      background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80');
-      background-size:cover;
-      background-position:center;
-      height:100vh;
-      color:white;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:20px;
-    }
+        nav {
+            background-color: #1b5e20;
+            padding: 10px;
+            text-align: center;
+        }
 
-    header h1{
-      font-size:4rem;
-      margin-bottom:20px;
-      letter-spacing:2px;
-    }
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    header p{
-      font-size:1.3rem;
-      max-width:700px;
-      margin-bottom:30px;
-    }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #c8e6c9;
+        }
 
-    .btn{
-      display:inline-block;
-      background:#4CAF50;
-      color:white;
-      padding:14px 30px;
-      text-decoration:none;
-      border-radius:5px;
-      font-size:1rem;
-      transition:0.3s;
-    }
+        .hero h1 {
+            font-size: 40px;
+            color: #1b5e20;
+        }
 
-    .btn:hover{
-      background:#388e3c;
-    }
+        .products {
+            padding: 40px 20px;
+            text-align: center;
+        }
 
-    nav{
-      position:fixed;
-      width:100%;
-      top:0;
-      left:0;
-      background:rgba(0,0,0,0.7);
-      padding:15px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-    }
+        .product-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-    nav .logo{
-      color:#fff;
-      font-size:1.6rem;
-      font-weight:bold;
-    }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            width: 250px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }
 
-    nav ul{
-      display:flex;
-      list-style:none;
-    }
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-    nav ul li{
-      margin-left:20px;
-    }
+        .contact {
+            background-color: #e8f5e9;
+            padding: 40px 20px;
+            text-align: center;
+        }
 
-    nav ul li a{
-      color:white;
-      text-decoration:none;
-      transition:0.3s;
-    }
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
 
-    nav ul li a:hover{
-      color:#8BC34A;
-    }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
 
-    section{
-      padding:80px 10%;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
-    }
-
-    .section-title h2{
-      font-size:2.5rem;
-      color:#2e7d32;
-      margin-bottom:10px;
-    }
-
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
-    }
-
-    .about img{
-      width:100%;
-      border-radius:10px;
-    }
-
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .product-card{
-      background:white;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
-
-    .product-card:hover{
-      transform:translateY(-8px);
-    }
-
-    .product-card img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-    }
-
-    .product-card .content{
-      padding:20px;
-    }
-
-    .product-card h3{
-      color:#2e7d32;
-      margin-bottom:10px;
-    }
-
-    .features{
-      background:#e8f5e9;
-    }
-
-    .feature-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px;
-      text-align:center;
-    }
-
-    .feature-box{
-      background:white;
-      padding:30px 20px;
-      border-radius:10px;
-      box-shadow:0 5px 10px rgba(0,0,0,0.08);
-    }
-
-    .feature-box h3{
-      margin:15px 0;
-      color:#2e7d32;
-    }
-
-    .contact{
-      text-align:center;
-    }
-
-    .contact p{
-      margin:10px 0;
-      font-size:1.1rem;
-    }
-
-    footer{
-      background:#1b5e20;
-      color:white;
-      text-align:center;
-      padding:20px;
-    }
-
-    @media(max-width:768px){
-      header h1{
-        font-size:2.5rem;
-      }
-
-      .about{
-        grid-template-columns:1fr;
-      }
-
-      nav{
-        flex-direction:column;
-      }
-
-      nav ul{
-        margin-top:10px;
-      }
-    }
-  </style>
+        .btn:hover {
+            background-color: #1b5e20;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">Punjabcrops</div>
+    <header>
+        <h1>Punjabcrops</h1>
+        <p>Organic Farming & Natural Products</p>
+    </header>
 
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#features">Why Us</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>Punjabcrops</h1>
-    <p>
-      Fresh Natural Organic Food & Premium Quality Spices
-      directly from trusted farms to your kitchen.
-    </p>
+    <section class="hero" id="home">
+        <h1>Welcome to Punjabcrops</h1>
+        <p>We deal in high-quality organic farming products directly from farmers.</p>
+    </section>
 
-    <a href="#products" class="btn">Explore Products</a>
-  </header>
+    <section class="products" id="products">
+        <h2>Our Products</h2>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="section-title">
-      <h2>About Us</h2>
-      <p>Healthy food grown naturally with care.</p>
-    </div>
+        <div class="product-container">
 
-    <div class="about">
-      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80" alt="Organic Farm">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5" alt="Turmeric">
+                <h3>Organic Turmeric</h3>
+                <p>Pure and natural organic turmeric directly from farms.</p>
+            </div>
 
-      <div>
-        <h3 style="font-size:2rem; color:#2e7d32; margin-bottom:20px;">
-          Welcome to Punjabcrops
-        </h3>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d" alt="Red Chilli Powder">
+                <h3>Red Chilli Powder</h3>
+                <p>Fresh organic red chilli powder with rich flavor and color.</p>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Dry Vegetables">
+                <h3>Dry Vegetables</h3>
+                <p>Healthy and naturally dried vegetables for daily use.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
 
         <p>
-          At Punjabcrops, we are committed to providing pure,
-          natural, and organic food products along with authentic
-          Indian spices. Our products are sourced directly from
-          farms using eco-friendly and chemical-free farming methods.
+            Want to sell your organic products on our website?<br>
+            Contact us today.
         </p>
 
-        <br>
+        <p><strong>Phone:</strong> 9876709038</p>
 
         <p>
-          We believe healthy food creates a healthy life.
-          From grains and pulses to traditional spices,
-          we bring freshness and purity to every home.
+            <strong>Email:</strong>
+            <a href="mailto:Punjabcrops@gmail.com">
+                Punjabcrops@gmail.com
+            </a>
         </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- Products -->
-  <section id="products">
-    <div class="section-title">
-      <h2>Our Products</h2>
-      <p>Pure, organic, and full of natural goodness.</p>
-    </div>
+        <p>
+            <strong>Instagram:</strong><br>
+            <a class="btn" href="https://www.instagram.com/punjabcrops?igsh=MWpkeTh3aW44eHU5bQ%3D%3D&utm_source=qr" target="_blank">
+                Follow on Instagram
+            </a>
+        </p>
+    </section>
 
-    <div class="products">
-
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=1000&q=80" alt="Organic Grains">
-
-        <div class="content">
-          <h3>Organic Grains</h3>
-          <p>
-            Naturally grown wheat, rice, and pulses without harmful chemicals.
-          </p>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1000&q=80" alt="Spices">
-
-        <div class="content">
-          <h3>Natural Spices</h3>
-          <p>
-            Premium turmeric, chili, coriander, cumin, and traditional blends.
-          </p>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1000&q=80" alt="Organic Vegetables">
-
-        <div class="content">
-          <h3>Fresh Vegetables</h3>
-          <p>
-            Farm fresh vegetables packed with nutrients and natural taste.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="features">
-    <div class="section-title">
-      <h2>Why Choose Us</h2>
-      <p>Trusted quality from farm to table.</p>
-    </div>
-
-    <div class="feature-grid">
-
-      <div class="feature-box">
-        <h3>100% Organic</h3>
-        <p>Pure natural farming methods without chemicals.</p>
-      </div>
-
-      <div class="feature-box">
-        <h3>Farm Fresh</h3>
-        <p>Freshly harvested products delivered with care.</p>
-      </div>
-
-      <div class="feature-box">
-        <h3>Premium Quality</h3>
-        <p>Carefully selected ingredients and authentic spices.</p>
-      </div>
-
-      <div class="feature-box">
-        <h3>Healthy Lifestyle</h3>
-        <p>Nutritious food for a healthier and happier family.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>We would love to hear from you.</p>
-    </div>
-
-    <p><strong>Email:</strong> punjabcrops@gmail.com</p>
-    <p><strong>Phone:</strong> +91 9876709038</p>
-    <p><strong>Location:</strong> Amritsar,Punjab, India</p>
-
-    <br>
-
-    <a href="mailto:info@punjabcrops.com" class="btn">
-      Get In Touch
-    </a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>
-      © 2026 Punjabcrops. All Rights Reserved.
-    </p>
-  </footer>
+    <footer>
+        <p>© 2026 Punjabcrops | Organic Farming Products</p>
+    </footer>
 
 </body>
 </html>
